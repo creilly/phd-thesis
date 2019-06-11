@@ -1,0 +1,53 @@
+In our experiments we perform measurements on an ensemble of molecules that assume a classical distribution of initial quantum states. 
+For simplicity we assume our possible initial states form a discrete set, so that we can describe our ensembles by specificying a pair 
+$\left( \{ \ket{\psi_o} \}, P(\ket{\psi_o})\right)$ which defines the set of possible initial states $\{ \ket{\psi_o} \}$ and the fraction $P(\ket{\psi_o}$ of molecules in the ensemble initially occupying a given state $\ket{psi_o}$.
+At a later time $t$ an initial state $\ket{\psi_o}$ will have evolved to the state $e^{H(t-t_o)/i\hbar}\ket{\psi_o} \equiv U(t,t_o) \ket{\psi_o} \equiv \ket{\psi,t}$, where $H$ is the hamiltonian, we which presume to be identical for each molecule in the hamiltonian.
+
+If at time $t$ we measure some observable $A$ of each molecule, then we expect on average a result equal to the \emph{classical} expectation value $\dev{A}$ over the distribution $P(\ket{\psi_o})$ of the \emph{quantum} expectation value $\ev{A}(t) = \bra{\psi,t}A \ket{\psi,t}$, i.e.
+$$
+\dev{A} (t)= 
+\sum_{\{\ket{\psi_o}\}} P(\ket{\psi_o}) \ev{A}(t)
+$$
+From an orthonormal basis $\{ \ket{n} \}$ we can construct and insert the identity $\sum_n \ket{n}\bra{n}$ to obtain the following alternative expression for $\dev{A}$ 
+\begin{equation}
+\begin{split}
+\dev{A}(t)
+& = 
+\sum_{\{\ket{\psi_o}\}} P(\ket{\psi_o}) \bra{\psi,t} \sum_n \ket{n}\bra{n} A \ket{\psi,t}
+\\ & = 
+\sum_n \bra{n} A \left( \sum_{\{\ket{\psi_o}\}} P(\ket{\psi_o}) \ket{\psi,t} \bra{\psi,t} \right) \ket{n}
+\\ & = 
+\text{Tr} \left( A \rho(t) \right)
+\end{split}
+\label{eq:ev}
+\end{equation}
+Where 
+\begin{equation}
+\begin{split}
+\rho(t) 
+& \equiv 
+\sum_{\{\ket{\psi_o}\}} P(\ket{\psi_o}) \ket{\psi,t} \bra{\psi,t} 
+\\ & =
+U(t,t_o) \left( \sum_{\{\ket{\psi_o}\}} P(\ket{\psi_o}) \ket{\psi_o} \bra{\psi_o} \right) U^\dagger (t,t_o)
+\\ & \equiv
+U(t,t_o) \rho_o U^\dagger (t,t_o)
+\end{split}
+\label{eq:do}
+\end{equation}
+is the \emph{density operator} at a time $t$ of an ensemble with a distribution $P(\ket{\psi}_o)$ at a time $t_o$.
+
+To calculate any observable $A$ associated with an ensemble (defined at a time $t_o$) at some later time $t$ it is therefore sufficient to compute the ensemble's initial density operator $\rho(t_o) \equiv \rho_o$ and ``propagate'' the operator forward in time (i.e. $\rho_o \to \rho' = \rho(t)$) using equation \eqref{eq:do}.
+
+Note that equation \eqref{eq:ev} also implies that two ensembles 
+$\left( \{ \ket{\psi_o} \}, P(\ket{\psi_o}) \right)$ and $ \left( \{ \ket{\psi_o} \}', P'(\ket{\psi_o})\right)$ 
+that have the same associated initial density operators $\rho_o \equiv \rho'_o$ are equivalent in that for all times they produce identical measurable predictions.
+
+One can show that a density operator $\rho$ at any time
+\begin{itemize}
+    \item is hermitian
+    \item has non-negative eigenvalues and
+    \item has unit trace.
+\end{itemize}
+The converse is also true -- for any hermitean operator $\rho$ with non-negative eigenvalues and unit trace we can find an ensemble 
+$\left( \{ \ket{\psi_o} \}, P(\ket{\psi_o}) \right)$ so that $\sum_{\{\ket{\psi_o}\}} P(\ket{\psi_o}) \ket{\psi_o} \bra{\psi_o} = \rho$. 
+Therefore the study of ensembles of quantum mechanical states is reduced to the study of operators $\rho$ with the three above-mentioned properties evolving in time according to equation \eqref{eq:do}.

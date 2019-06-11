@@ -1,0 +1,37 @@
+% !TeX document-id = {f3146876-9a53-4f56-9560-e6295d649f82}
+% !TeX program = pdflatex
+% !TeX TXS-program:bibliography = txs:///biber
+% !TeX encoding = utf8
+
+
+\documentclass{files/classes/utthesis}
+
+% If you use luatex (better)
+% \usepackage[utf8]{inputenc}
+
+\usepackage[%
+	backend=biber,
+	style=ieee,
+	maxbibnames=4,
+	minbibnames=1,
+	maxcitenames=3,
+	mincitenames=1,
+	backref=true
+	]{biblatex}
+
+\addbibresource{files/bibliography/refs.bib}
+
+\usepackage{graphicx}
+
+% This should be the last package you load
+\usepackage[hidelinks]{hyperref} % Handy for links, can comment for plain PDF
+
+\input{files/math-mode/commands.tex}
+
+\UTyear=2017
+
+\makeindex
+
+\graphicspath{{./images/}}
+
+\errorcontextlines 10000
